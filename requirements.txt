@@ -1,0 +1,5 @@
+asyncio==3.4.3
+discord.py==1.6.0
+bs4==0.0.1
+discord==1.0.1
+requests==2.25.1
