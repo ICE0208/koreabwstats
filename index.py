@@ -20,12 +20,13 @@ time_gap= datetime.timedelta(hours=9)
 level_kor_time= utcnow+ time_gap
 i=0
 len_player_lists = 0
+first_load = 0
 
 @client.event
 async def on_ready():
     print(client.user.id)
     print("ready")
-    game = discord.Game("준비")
+    game = discord.Game(name = "봇 실행중")
     await client.change_presence(status=discord.Status.idle, activity=game)
     t1 = threading.Thread(target=loop)
     t1.start()
@@ -787,6 +788,7 @@ def loop():
             finalkills_ranking_4_dict.clear()
             global bedsbroken_ranking_4_dict
             bedsbroken_ranking_4_dict.clear()
+            global first_load
 
             webpage = requests.get(access_list)
             soup = BeautifulSoup(webpage.content, "html.parser")
@@ -966,6 +968,7 @@ def loop():
             global bedsbroken_ranking_4_list
             bedsbroken_ranking_4_list = sorted(bedsbroken_ranking_4_dict.items(),reverse=True,key=lambda item:item[1])
             #print("4 갱신됨")
+            first_load = 1
             
         except:
             #print("오류 발생 1초 기다리기")
@@ -976,7 +979,8 @@ def loop():
 
 @tasks.loop(seconds=3)
 async def loop2():
-    global level_kor_time
-    await client.change_presence(status = discord.Status.online, activity = discord.Game(name = f"/베워 \n{level_kor_time.hour}시 {level_kor_time.minute}분 갱신 완료 & ({i}/{len_player_lists})"))
+    if first_load == 1:
+        global level_kor_time
+        await client.change_presence(status = discord.Status.online, activity = discord.Game(name = f"/베워 ({level_kor_time.hour}시 {level_kor_time.minute}분 갱신 완료)"))
 
 client.run(token)
