@@ -977,6 +977,6 @@ def loop():
 @tasks.loop(seconds=3)
 async def loop2():
     global level_kor_time
-    await client.change_presence(status = discord.Status.online, activity = discord.Game(f"{level_kor_time.hour}시 {level_kor_time.minute}분 갱신 완료 & ({i}/{len_player_lists})"))
+    await client.change_presence(status = discord.Status.online, activity = discord.Game(f"/베워 \n{level_kor_time.hour}시 {level_kor_time.minute}분 갱신 완료 & ({i}/{len_player_lists})"))
 
 client.run(token)
