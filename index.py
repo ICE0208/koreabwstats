@@ -26,7 +26,7 @@ first_load = 0
 async def on_ready():
     print(client.user.id)
     print("ready")
-    game = discord.Game(name = "봇 실행중")
+    game = discord.Game(name = "봇 실행")
     await client.change_presence(status=discord.Status.idle, activity=game)
     t1 = threading.Thread(target=loop)
     t1.start()
