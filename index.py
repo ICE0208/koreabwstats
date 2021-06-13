@@ -41,6 +41,7 @@ def star(num):
 
 @client.event
 async def on_message(message):
+    global i
     try:
         guild_name = message.guild
     except:
@@ -660,7 +661,7 @@ async def on_message(message):
             await message.channel.send(m)
             try:
                 await message.channel.send("trying...(3)")
-                tempvar = locals()(m)
+                tempvar = locals()[m]
                 await message.channel.send("trying...(2)")
                 await message.channel.send("trying...(1)")
                 for i in range(0,50):
