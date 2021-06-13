@@ -660,8 +660,7 @@ async def on_message(message):
             await message.channel.send(m)
             try:
                 await message.channel.send("trying...(3)")
-                tempvar = eval(m)
-                tempvar = list(tempvar)
+                tempvar = locals()(m)
                 await message.channel.send("trying...(2)")
                 await message.channel.send("trying...(1)")
                 for i in range(0,50):
