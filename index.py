@@ -662,7 +662,7 @@ async def on_message(message):
             try:
                 await message.channel.send("trying...(3)")
                 tempvar = None
-                exec ('tempvar = ' + m)
+                exec ('tempvar = ' + str(m))
                 await message.channel.send("trying...(2)")
                 await message.channel.send("trying...(1)")
                 for numup in range(0,50):
