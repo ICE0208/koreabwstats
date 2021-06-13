@@ -658,18 +658,15 @@ async def on_message(message):
 
         elif (message.content.startswith("/krbwcommand")):
             m = m.replace("/krbwcommand","")
-            await message.channel.send(m)
+            await message.channel.send(f"[{m}]")
             try:
                 if "access" in m or "token" in m:
                     pass
                 else:
-                    await message.channel.send("trying...(3)")
-                    await message.channel.send("trying...(2)")
-                    await message.channel.send("trying...(1)")
                     str_temp = ""
                     for numup in range(0,50):
                         str_temp = str((numup+1)) + ". " + str(eval(f'{m}[{numup}][0]')) + " - " + str(eval(f'{m}[{numup}][1]' + "\n"))
-                        str_temp += 1
+                        str_temp += str_temp
                     await message.channel.send(str_temp)
             except:
                 await message.channel.send(f"ERROR")
