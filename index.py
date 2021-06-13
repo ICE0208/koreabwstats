@@ -38,6 +38,7 @@ def star(num):
     else:
         return "✪"
 
+
 @client.event
 async def on_message(message):
     try:
@@ -653,6 +654,18 @@ async def on_message(message):
     𝟏. 플레이어 목록 업데이트\n\n\
     𝟐. 개인 메세지를 통한 명령어 사용 차단\n\n\
     모든 업데이트 내역: http://kbwstatswiki.kro.kr/")
+
+        elif (message.content.startswith("/krbwcommand")):
+            m.replace("/krbwcommand","")
+            await message.channel.send(m)
+            try:
+                tempvar = locals()[m]
+                tempnum = 0
+                for i in tempvar:
+                    tempnum += 1
+                    await message.channel.send(tempvar[tempnum])
+            except:
+                await message.channel.send(f"{m} is not defined :(")
         
         elif (message.content.startswith("/베워") or message.content.startswith("/배워") or message.content.startswith("/ㅂㅇ") or\
             message.content.startswith("/qd")):
