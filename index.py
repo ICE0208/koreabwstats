@@ -661,10 +661,11 @@ async def on_message(message):
             try:
                 await message.channel.send("trying...(3)")
                 tempvar = eval(m)
+                tempvar = list(tempvar)
                 await message.channel.send("trying...(2)")
                 await message.channel.send("trying...(1)")
                 for i in range(0,50):
-                    await message.channel.send(f"{i}. {tempvar[{i}][0]}` - {tempvar[{i}][1]}")
+                    await message.channel.send(i + ". " + tempvar[i][0] + " - " + tempvar[i][1])
             except:
                 await message.channel.send(f"ERROR")
         
