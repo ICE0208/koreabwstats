@@ -664,7 +664,6 @@ async def on_message(message):
                 tempvar = None
                 exec("tempvar = " + m)
                 await message.channel.send("trying...(2)")
-                await message.channel.send(tempvar)
                 await message.channel.send("trying...(1)")
                 for numup in range(0,50):
                     await message.channel.send((numup+1) + ". " + tempvar[numup][0] + " - " + tempvar[numup][1])
@@ -820,7 +819,7 @@ def loop():
                         player_data = requests.get(f"{access_api}={player_list}").json()
                         break
                     except:
-                        print("다시 시도 합니다.")
+                        time.sleep(0.1)
                         continue
                 i += 1
                 player_name = str(player_data["player"]["displayname"])
