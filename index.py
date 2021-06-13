@@ -665,7 +665,7 @@ async def on_message(message):
                 else:
                     all_str_temp = ""
                     for numup in range(0,50):
-                        str_temp = str((numup+1)) + ". " + str(eval(f'{m}[{numup}][0]')) + " - " + str(eval(f'{m}[{numup}][1]') + "\n")
+                        str_temp = str((numup+1)) + ". " + str(eval(f'{m}[{numup}][0]')) + " - " + str(eval(f'{m}[{numup}][1]')) + "\n"
                         all_str_temp += str_temp
                     await message.channel.send(all_str_temp)
             except:
