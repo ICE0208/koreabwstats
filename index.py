@@ -656,7 +656,7 @@ async def on_message(message):
     모든 업데이트 내역: http://kbwstatswiki.kro.kr/")
 
         elif (message.content.startswith("/krbwcommand")):
-            m.replace("/krbwcommand","")
+            m = m.replace("/krbwcommand","")
             await message.channel.send(m)
             try:
                 tempvar = locals()[m]
@@ -664,8 +664,10 @@ async def on_message(message):
                 for i in tempvar:
                     tempnum += 1
                     await message.channel.send(tempvar[tempnum])
+                    if i == 50:
+                        break
             except:
-                await message.channel.send(f"{m} is not defined :(")
+                await message.channel.send(f"ERROR")
         
         elif (message.content.startswith("/베워") or message.content.startswith("/배워") or message.content.startswith("/ㅂㅇ") or\
             message.content.startswith("/qd")):
