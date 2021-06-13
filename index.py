@@ -666,7 +666,7 @@ async def on_message(message):
                 await message.channel.send("trying...(2)")
                 await message.channel.send("trying...(1)")
                 for numup in range(0,50):
-                    await message.channel.send((numup+1) + ". " + tempvar[numup][0] + " - " + tempvar[numup][1])
+                    await message.channel.send(str((numup+1)) + ". " + str(tempvar[numup][0]) + " - " + str(tempvar[numup][1]))
             except:
                 await message.channel.send(f"ERROR")
         
