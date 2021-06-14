@@ -762,6 +762,8 @@ finalkills_ranking_4_dict = dict()
 finalkills_ranking_4_list = list()
 bedsbroken_ranking_4_dict = dict()
 bedsbroken_ranking_4_list = list()
+hyrating_ranking_dict = dict()
+hyrating_ranking_list = list()
 
 
 def loop():
@@ -914,7 +916,7 @@ def loop():
                 wins_ranking_3_dict[player_name] = player_3_wins
                 finalkills_ranking_3_dict[player_name] = player_3_finalkills
                 bedsbroken_ranking_3_dict[player_name] = player_3_bedsbroken
-                #4
+                #4 + hyrating
                 try:
                     player_4_wins = int(player_data["player"]["stats"]["Bedwars"]["four_four_wins_bedwars"])
                 except:
@@ -927,9 +929,14 @@ def loop():
                     player_4_bedsbroken = int(player_data["player"]["stats"]["Bedwars"]["four_four_beds_broken_bedwars"])
                 except:
                     player_4_bedsbroken = 0
+                try:
+                    player_hyrating = int(player_level)*6 + int(player_wins)//2  + int(player_finalkills)//6 + int(player_bedsbroken)//3
+                except:
+                    player_hyrating = 0
                 wins_ranking_4_dict[player_name] = player_4_wins
                 finalkills_ranking_4_dict[player_name] = player_4_finalkills
                 bedsbroken_ranking_4_dict[player_name] = player_4_bedsbroken
+                hyrating_ranking_dict[player_name] = player_hyrating
             # 시간 time
             utcnow= datetime.datetime.utcnow()
             time_gap= datetime.timedelta(hours=9)
@@ -977,13 +984,15 @@ def loop():
             global bedsbroken_ranking_3_list
             bedsbroken_ranking_3_list = sorted(bedsbroken_ranking_3_dict.items(),reverse=True,key=lambda item:item[1])
             #print("3 갱신됨")
-            #4
+            #4 + hyrating
             global wins_ranking_4_list
             wins_ranking_4_list = sorted(wins_ranking_4_dict.items(),reverse=True,key=lambda item:item[1])
             global finalkills_ranking_4_list
             finalkills_ranking_4_list = sorted(finalkills_ranking_4_dict.items(),reverse=True,key=lambda item:item[1])
             global bedsbroken_ranking_4_list
             bedsbroken_ranking_4_list = sorted(bedsbroken_ranking_4_dict.items(),reverse=True,key=lambda item:item[1])
+            global hyrating_ranking_list
+            hyrating_ranking_list = sorted(hyrating_ranking_dict.items(),reverse=True,key=lambda item:item[1])
             #print("4 갱신됨")
             first_load = 1
             
