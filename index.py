@@ -948,6 +948,7 @@ def loop():
                     games_played = 0
                 try:
                     totalkills = int(player_data["player"]["stats"]["Bedwars"]["kills_bedwars"])
+                    totalkills += int(player_data["player"]["stats"]["Bedwars"]["final_kills_bedwars"])
                 except:
                     totalkills = 0
                 wins_ranking_4_dict[player_name] = player_4_wins
