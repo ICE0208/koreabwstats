@@ -764,6 +764,10 @@ bedsbroken_ranking_4_dict = dict()
 bedsbroken_ranking_4_list = list()
 hyrating_ranking_dict = dict()
 hyrating_ranking_list = list()
+play_ranking_dict = dict()
+play_ranking_list = list()
+kills_ranking_dict = dict()
+kills_ranking_list = list()
 
 
 def loop():
@@ -807,6 +811,11 @@ def loop():
             finalkills_ranking_4_dict.clear()
             global bedsbroken_ranking_4_dict
             bedsbroken_ranking_4_dict.clear()
+            global play_ranking_dict
+            play_ranking_dict.clear()
+            global kills_ranking_dict
+            kills_ranking_dict.clear()
+            
             global first_load
 
             webpage = requests.get(access_list)
@@ -916,7 +925,7 @@ def loop():
                 wins_ranking_3_dict[player_name] = player_3_wins
                 finalkills_ranking_3_dict[player_name] = player_3_finalkills
                 bedsbroken_ranking_3_dict[player_name] = player_3_bedsbroken
-                #4 + hyrating
+                #4 + hyrating + games_played + kills_bedwars
                 try:
                     player_4_wins = int(player_data["player"]["stats"]["Bedwars"]["four_four_wins_bedwars"])
                 except:
@@ -933,10 +942,20 @@ def loop():
                     player_hyrating = int(player_level)*6 + int(player_wins)//2  + int(player_finalkills)//6 + int(player_bedsbroken)//3
                 except:
                     player_hyrating = 0
+                try:
+                    games_played = int(player_data["player"]["stats"]["Bedwars"]["games_played_bedwars"])
+                except:
+                    games_played = 0
+                try:
+                    totalkills = int(player_data["player"]["stats"]["Bedwars"]["kills_bedwars"])
+                except:
+                    totalkills = 0
                 wins_ranking_4_dict[player_name] = player_4_wins
                 finalkills_ranking_4_dict[player_name] = player_4_finalkills
                 bedsbroken_ranking_4_dict[player_name] = player_4_bedsbroken
                 hyrating_ranking_dict[player_name] = player_hyrating
+                play_ranking_dict[player_name] = games_played
+                kills_ranking_dict[player_name] = totalkills
             # 시간 time
             utcnow= datetime.datetime.utcnow()
             time_gap= datetime.timedelta(hours=9)
@@ -984,7 +1003,7 @@ def loop():
             global bedsbroken_ranking_3_list
             bedsbroken_ranking_3_list = sorted(bedsbroken_ranking_3_dict.items(),reverse=True,key=lambda item:item[1])
             #print("3 갱신됨")
-            #4 + hyrating
+            #4 + hyrating + games_played + kills_bedwars
             global wins_ranking_4_list
             wins_ranking_4_list = sorted(wins_ranking_4_dict.items(),reverse=True,key=lambda item:item[1])
             global finalkills_ranking_4_list
@@ -993,6 +1012,10 @@ def loop():
             bedsbroken_ranking_4_list = sorted(bedsbroken_ranking_4_dict.items(),reverse=True,key=lambda item:item[1])
             global hyrating_ranking_list
             hyrating_ranking_list = sorted(hyrating_ranking_dict.items(),reverse=True,key=lambda item:item[1])
+            global play_ranking_list
+            play_ranking_list = sorted(play_ranking_dict.items(),reverse=True,key=lambda item:item[1])
+            global kills_ranking_list
+            kills_ranking_list = sorted(kills_ranking_dict.items(),reverse=True,key=lambda item:item[1])
             #print("4 갱신됨")
             first_load = 1
             
