@@ -959,7 +959,7 @@ def loop():
                 kills_ranking_dict[player_name] = totalkills
                 
             # ?
-            wins_ranking_4_dict['Ketthe'] = 24563
+            wins_ranking_dict['Ketthe'] = 24563
             level_ranking_dict['Ketthe'] = 1391
             finalkills_ranking_dict['Ketthe'] = 83552
             bedsbroken_ranking_dict['Ketthe'] = 37400
