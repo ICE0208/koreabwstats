@@ -957,12 +957,7 @@ def loop():
                 hyrating_ranking_dict[player_name] = player_hyrating
                 play_ranking_dict[player_name] = games_played
                 kills_ranking_dict[player_name] = totalkills
-                
-            # ?
-            wins_ranking_dict['Ketthe'] = 24563
-            level_ranking_dict['Ketthe'] = 1391
-            finalkills_ranking_dict['Ketthe'] = 83552
-            bedsbroken_ranking_dict['Ketthe'] = 37400
+            
             
             # 시간 time
             utcnow= datetime.datetime.utcnow()
