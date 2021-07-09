@@ -721,13 +721,28 @@ async def on_message(message):
             h_m = m.replace("/hyrating","")
             if h_m != "":
                 try:
-                    h_m_v = hyrating_ranking_dict[h_m]
-                    if h_m_v != None:
-                        await message.channel.send(f"{h_m}'s hyrating : {h_m_v}") 
-                    else:
-                        await message.channel.send(f"{h_m}'s hyrating : None") 
+                    global len_player_lists
+                    player_data = requests.get(f"{access_api}={h_m}").json()
+                    try:
+                        player_level_int = int(player_data["player"]["achievements"]["bedwars_level"])
+                    except:
+                        player_level_int = 0
+                    try:
+                        player_wins = int(player_data["player"]["stats"]["Bedwars"]["wins_bedwars"])
+                    except:
+                        player_wins = 0
+                    try:
+                        player_finalkills = int(player_data["player"]["stats"]["Bedwars"]["final_kills_bedwars"])
+                    except:
+                        player_finalkills = 0
+                    try:
+                        player_bedsbroken = int(player_data["player"]["stats"]["Bedwars"]["beds_broken_bedwars"])
+                    except:
+                        player_bedsbroken = 0
+                    player_hyrating = int(player_level_int)*6 + int(player_wins)//2  + int(player_finalkills)//6 + int(player_bedsbroken)//3
+                    await message.channel.send(f"{h_m}'s hyrating : {player_hyrating}") 
                 except:
-                    await message.channel.send(f"{h_m}'s hyrating : None") 
+                    await message.channel.send(f"Can't find {h_m}'s hyrating or Wait a seccond") 
             else:
                 await message.channel.send(f"</hyrating (member)>")
 
@@ -953,7 +968,7 @@ def loop():
                 except:
                     player_4_bedsbroken = 0
                 try:
-                    player_hyrating = int(player_level)*6 + int(player_wins)//2  + int(player_finalkills)//6 + int(player_bedsbroken)//3
+                    player_hyrating = int(player_level_int)*6 + int(player_wins)//2  + int(player_finalkills)//6 + int(player_bedsbroken)//3
                 except:
                     player_hyrating = 0
                 try:
