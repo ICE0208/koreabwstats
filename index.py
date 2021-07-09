@@ -721,7 +721,14 @@ async def on_message(message):
             h_m = m.replace("/hyrating","")
             if h_m != "":
                 try:
-                    global len_player_lists
+                    uuid_data_r = requests.get(f"https://mcuuid.net/?q={h_m}")
+                    uuid_data = BeautifulSoup(uuid_data_r.text,"html.parser")
+                    uuid_data = str(uuid_data.select('#results_raw_id'))
+                    uuid_temp_num = uuid_data.find('value')
+                    uuid_data = uuid_data[uuid_temp_num:]
+                    uuid_data = uuid_data.replace('value="','')
+                    uuid_data = uuid_data.replace('"/>]','')
+                    h_m = uuid_data
                     player_data = requests.get(f"{access_api}={h_m}").json()
                     try:
                         player_level_int = int(player_data["player"]["achievements"]["bedwars_level"])
