@@ -11,6 +11,7 @@ import time
 import os
 access_token = os.environ['BOT_TOKEN']
 access_api = os.environ['GET_API']
+access_api2 = os.environ['GET_API2']
 access_list = os.environ['PLAYER_LIST']
 token = access_token #토큰설정
 
@@ -729,7 +730,7 @@ async def on_message(message):
                     uuid_data = uuid_data.replace('value="','')
                     uuid_data = uuid_data.replace('"/>]','')
                     h_m = uuid_data
-                    player_data = requests.get(f"{access_api}={h_m}").json()
+                    player_data = requests.get(f"{access_api2}={h_m}").json()
                     try:
                         player_level_int = int(player_data["player"]["achievements"]["bedwars_level"])
                     except:
