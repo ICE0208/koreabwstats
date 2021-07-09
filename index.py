@@ -722,6 +722,7 @@ async def on_message(message):
             h_m = m.replace("/hyrating","")
             if h_m != "":
                 try:
+                    or_name = h_m
                     uuid_data_r = requests.get(f"https://mcuuid.net/?q={h_m}")
                     uuid_data = BeautifulSoup(uuid_data_r.text,"html.parser")
                     uuid_data = str(uuid_data.select('#results_raw_id'))
@@ -748,9 +749,9 @@ async def on_message(message):
                     except:
                         player_bedsbroken = 0
                     player_hyrating = int(player_level_int)*6 + int(player_wins)//2  + int(player_finalkills)//6 + int(player_bedsbroken)//3
-                    await message.channel.send(f"{h_m}'s hyrating : {player_hyrating}") 
+                    await message.channel.send(f"{or_name}'s hyrating : {player_hyrating}") 
                 except:
-                    await message.channel.send(f"Can't find {h_m}'s hyrating or Wait a seccond") 
+                    await message.channel.send(f"Can't find {or_name}'s hyrating or Wait a seccond") 
             else:
                 await message.channel.send(f"</hyrating (member)>")
 
