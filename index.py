@@ -717,6 +717,20 @@ async def on_message(message):
 `/krbw 4v4_finalkills` - 𝟒𝐯𝟒 𝐅𝐢𝐧𝐚𝐥𝐊𝐢𝐥𝐥𝐬 𝐓𝐎𝐏𝟐𝟎\n\
 `/krbw 4v4_bedsbroken` - 𝟒𝐯𝟒 𝐁𝐞𝐝𝐬𝐁𝐫𝐨𝐤𝐞𝐧 𝐓𝐎𝐏𝟐𝟎") 
 
+        elif (message.content.startswith("/hyrating")):
+            h_m = m.replace("/hyrating","")
+            if h_m != "":
+                try:
+                    h_m_v = hyrating_ranking_dict[h_m]
+                    if h_m_v != None:
+                        await message.channel.send(f"{h_m}'s hyrating : {h_m_v}") 
+                    else:
+                        await message.channel.send(f"{h_m}'s hyrating : None") 
+                except:
+                    await message.channel.send(f"{h_m}'s hyrating : None") 
+            else:
+                await message.channel.send(f"</hyrating (member)>")
+
     elif message.author != client.user:
         try:
             await message.channel.send("개인 메세지는 허용되지 않습니다.")
