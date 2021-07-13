@@ -869,7 +869,7 @@ def loop():
                         player_data = requests.get(f"{access_api}={player_list}").json()
                         break
                     except:
-                        time.sleep(0.1)
+                        time.sleep(1)
                         continue
                 i += 1
                 player_name = str(player_data["player"]["displayname"])
