@@ -995,6 +995,7 @@ def loop():
                 hyrating_ranking_dict[player_name] = player_hyrating
                 play_ranking_dict[player_name] = games_played
                 kills_ranking_dict[player_name] = totalkills
+                time.sleep(0.1)
             
             
             # 시간 time
