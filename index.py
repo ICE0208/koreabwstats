@@ -48,7 +48,7 @@ async def on_message(message):
     except:
         guild_name = None
 
-    if ((guild_name != None or int(message.author.id) == 810709144915017748) and (message.author != client.user)):
+    if ((guild_name != None or int(message.author.id) == 857975198636834866) and (message.author != client.user)):
         m = message.content
         m = m.replace(" ","")
         if (m =="/베워레벨" or m=="/배워레벨" or m=="/배워래벨" or m=="/배워레밸" or m=="/배워래밸" or m=="/베워래벨" or m=="/베워레밸" or \
