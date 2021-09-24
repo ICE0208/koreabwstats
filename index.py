@@ -56,7 +56,9 @@ async def on_message(message):
         m = message.content
         m = m.replace(" ","")
         if (not(guild_id in avail_server_list)):
-            await message.channel.send("This bot is not available on this server :sob:")
+            if (message.content.startswith("/베워") or message.content.startswith("/배워") or message.content.startswith("/ㅂㅇ") or\
+            message.content.startswith("/qd")):
+                await message.channel.send("This bot is not available on this server :sob:")
         
         elif (m =="/베워레벨" or m=="/배워레벨" or m=="/배워래벨" or m=="/배워레밸" or m=="/배워래밸" or m=="/베워래벨" or m=="/베워레밸" or \
             m=="/베워래밸" or m=="/ㅂㅇㄼ" or m=="/ㅂㅇㄹㅂ" or m=="/qdfq" or m=="/krbwlevel"):
