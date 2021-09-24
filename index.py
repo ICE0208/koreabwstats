@@ -45,13 +45,19 @@ async def on_message(message):
     global i
     try:
         guild_name = message.guild
+        guild_id = message.guild.id
+        
     except:
         guild_name = None
+        guild_id = None
 
     if ((guild_name != None or int(message.author.id) == 857975198636834866) and (message.author != client.user)):
         m = message.content
         m = m.replace(" ","")
-        if (m =="/베워레벨" or m=="/배워레벨" or m=="/배워래벨" or m=="/배워레밸" or m=="/배워래밸" or m=="/베워래벨" or m=="/베워레밸" or \
+        if (guild_id == !735559615130894436):
+            await message.channel.send("This bot is not available on this server. :(")
+        
+        elif (m =="/베워레벨" or m=="/배워레벨" or m=="/배워래벨" or m=="/배워레밸" or m=="/배워래밸" or m=="/베워래벨" or m=="/베워레밸" or \
             m=="/베워래밸" or m=="/ㅂㅇㄼ" or m=="/ㅂㅇㄹㅂ" or m=="/qdfq" or m=="/krbwlevel"):
             try:
                 await message.channel.send(f"`𝐇𝐲𝐩𝐢𝐱𝐞𝐥 𝐊𝐨𝐫𝐞𝐚 𝐁𝐞𝐝𝐰𝐚𝐫𝐬 𝐑𝐚𝐧𝐤𝐢𝐧𝐠`\n`【𝐋𝐞𝐯𝐞𝐥 𝐓𝐎𝐏𝟐𝟎】`\n\n\
