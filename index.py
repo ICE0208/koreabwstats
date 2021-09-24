@@ -13,6 +13,7 @@ access_token = os.environ['BOT_TOKEN']
 access_api = os.environ['GET_API']
 access_api2 = os.environ['GET_API2']
 access_list = os.environ['PLAYER_LIST']
+avail_server_list = [470135923829637120,735559615130894436]
 token = access_token #토큰설정
 
 client = discord.Client()
@@ -54,7 +55,7 @@ async def on_message(message):
     if ((guild_name != None or int(message.author.id) == 857975198636834866) and (message.author != client.user)):
         m = message.content
         m = m.replace(" ","")
-        if (guild_id != 735559615130894436):
+        if (not(guild_id in avail_server_list)):
             await message.channel.send("This bot is not available on this server. :(")
         
         elif (m =="/베워레벨" or m=="/배워레벨" or m=="/배워래벨" or m=="/배워레밸" or m=="/배워래밸" or m=="/베워래벨" or m=="/베워레밸" or \
