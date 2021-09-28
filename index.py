@@ -13,7 +13,7 @@ access_token = os.environ['BOT_TOKEN']
 access_api = os.environ['GET_API']
 access_api2 = os.environ['GET_API2']
 access_list = os.environ['PLAYER_LIST']
-avail_server_list = [470135923829637120,735559615130894436,723458435143827568]
+avail_server_list = [470135923829637120,735559615130894436,723458435143827568,862893539846389780]
 token = access_token #토큰설정
 
 client = discord.Client()
