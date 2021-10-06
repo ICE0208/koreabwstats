@@ -1006,7 +1006,13 @@ def loop():
                 kills_ranking_dict[player_name] = totalkills
                 time.sleep(0.5)
             
-           
+            try:
+                wins_ranking_44_dict["아이쓰"] = wins_ranking_44_dict.pop('Ice_tain')
+                finalkills_ranking_44_dict["아이쓰"] = finalkills_ranking_44_dict.pop('Ice_tain')
+                bedsbroken_ranking_44_dict["아이쓰"] = bedsbroken_ranking_44_dict.pop('Ice_tain')
+                
+            except:
+                pass
             
             # 시간 time
             utcnow= datetime.datetime.utcnow()
