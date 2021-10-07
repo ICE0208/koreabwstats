@@ -884,8 +884,8 @@ def loop():
                 player_name = str(player_data["player"]["displayname"])
                 
                 # Special Nick
-                if (player_name == "Ice_tain") player_name = "Ice_tain <아이쓰>"
-                else if (player_name == "GhostMonarch") player_name = "GhostMonarch <풍이>"
+                if (player_name == "Ice_tain"): player_name = "Ice_tain <아이쓰>"
+                elif (player_name == "GhostMonarch"): player_name = "GhostMonarch <풍이>"
                 
                 
                 
