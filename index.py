@@ -1007,10 +1007,13 @@ def loop():
                 time.sleep(0.5)
             
             try:
-                wins_ranking_44_dict["아이쓰"] = wins_ranking_44_dict.pop('Ice_tain')
-                finalkills_ranking_44_dict["아이쓰"] = finalkills_ranking_44_dict.pop('Ice_tain')
-                bedsbroken_ranking_44_dict["아이쓰"] = bedsbroken_ranking_44_dict.pop('Ice_tain')
+                wins_ranking_44_dict["Ice_tain <아이쓰>"] = wins_ranking_44_dict.pop('Ice_tain')
+                finalkills_ranking_44_dict["Ice_tain <아이쓰>"] = finalkills_ranking_44_dict.pop('Ice_tain')
+                bedsbroken_ranking_44_dict["Ice_tain <아이쓰>"] = bedsbroken_ranking_44_dict.pop('Ice_tain')
                 
+                wins_ranking_44_dict["GhostMonarch <풍이>"] = wins_ranking_44_dict.pop('GhostMonarch')
+                finalkills_ranking_44_dict["GhostMonarch <풍이>"] = finalkills_ranking_44_dict.pop('GhostMonarch')
+                bedsbroken_ranking_44_dict["GhostMonarch <풍이>"] = bedsbroken_ranking_44_dict.pop('GhostMonarch')
             except:
                 pass
             
