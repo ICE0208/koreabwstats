@@ -882,6 +882,13 @@ def loop():
                         continue
                 i += 1
                 player_name = str(player_data["player"]["displayname"])
+                
+                # Special Nick
+                if (player_name == "Ice_tain") player_name = "Ice_tain <아이쓰>"
+                else if (player_name == "GhostMonarch") player_name = "GhostMonarch <풍이>"
+                
+                
+                
                 print(player_name)
                 player_level_int = int(player_data["player"]["achievements"]["bedwars_level"])
                 try:
@@ -1006,16 +1013,6 @@ def loop():
                 kills_ranking_dict[player_name] = totalkills
                 time.sleep(0.5)
             
-            try:
-                wins_ranking_44_dict["Ice_tain <아이쓰>"] = wins_ranking_44_dict.pop('Ice_tain')
-                finalkills_ranking_44_dict["Ice_tain <아이쓰>"] = finalkills_ranking_44_dict.pop('Ice_tain')
-                bedsbroken_ranking_44_dict["Ice_tain <아이쓰>"] = bedsbroken_ranking_44_dict.pop('Ice_tain')
-                
-                wins_ranking_44_dict["GhostMonarch <풍이>"] = wins_ranking_44_dict.pop('GhostMonarch')
-                finalkills_ranking_44_dict["GhostMonarch <풍이>"] = finalkills_ranking_44_dict.pop('GhostMonarch')
-                bedsbroken_ranking_44_dict["GhostMonarch <풍이>"] = bedsbroken_ranking_44_dict.pop('GhostMonarch')
-            except:
-                pass
             
             # 시간 time
             utcnow= datetime.datetime.utcnow()
