@@ -885,7 +885,7 @@ def loop():
                 
                 # Special Nick
                 if (player_name == "Ice_tain"): player_name = "Ice_tain <아이쓰>"
-                elif (player_name == "GhostMonarch"): player_name = "GhostMonarch <풍이>"
+                elif (player_name == "GhostMonarch"): player_name = "Icetain <풍이>"
                 
                 
                 
